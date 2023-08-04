@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+# this bash script shows listening sockets
+
+netstat -l --program
