@@ -1,3 +1,4 @@
+# mkdir in tmp/school dir
 file { '/tmp/school':
   ensure  => 'file',
   mode    => '0744',
