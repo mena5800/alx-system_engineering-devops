@@ -3,8 +3,6 @@
 # Install UFW (if not installed)
 sudo apt-get install -y ufw
 
-# enable ufw firewall
-sudo ufw enable
 
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
@@ -16,5 +14,6 @@ sudo ufw allow 22/tcp
 sudo ufw allow 443/tcp
 # allow port 88/tcp connection
 sudo ufw allow 80/tcp
-
+# enable ufw firewall
+sudo ufw enable -y
 sudo ufw status
