@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# Set variables
+EXTERNAL_PORT=8080
+INTERNAL_PORT=80
+
+# Install UFW (if not installed)
+sudo apt-get install -y ufw
+
+# Enable UFW
+sudo ufw enable
+
+# Allow incoming traffic to the specified port
+sudo ufw allow $EXTERNAL_PORT
+
+# Add port forwarding rules to before.rules
+sudo bash -c "echo '*nat
+:PREROUTING ACCEPT [0:0]
+-A PREROUTING -p tcp --dport $EXTERNAL_PORT -j REDIRECT --to-port $INTERNAL_PORT
+COMMIT' >> /etc/ufw/before.rules"
+
+# Reload UFW to apply changes
+sudo ufw reload
+
+# Enable IP forwarding
+sudo sed -i '/net.ipv4.ip_forward/s/^#//g' /etc/sysctl.conf
+sudo sysctl -p
