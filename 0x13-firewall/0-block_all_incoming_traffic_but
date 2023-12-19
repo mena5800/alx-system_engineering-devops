@@ -6,9 +6,15 @@ sudo apt-get install -y ufw
 # enable ufw firewall
 sudo ufw enable
 
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+
+
 # allow port 22/tcp connection
 sudo ufw allow 22/tcp
 # allow port 443/tcp connection
 sudo ufw allow 443/tcp
 # allow port 88/tcp connection
 sudo ufw allow 80/tcp
+
+sudo ufw status
