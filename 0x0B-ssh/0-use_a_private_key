@@ -5,4 +5,4 @@
 server="52.91.120.40"
 
 # Use ssh with single-character flags
-ssh "-i~/.ssh/school" "ubuntu@$server"
+ssh -i"~/.ssh/school" "ubuntu@$server"
