@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 # 0. Use a private key use a private key to connect server
 
-# Set the server's IP address or hostname
-server="52.91.120.40"
-
 # Use ssh with single-character flags
-ssh -i"~/.ssh/school" "ubuntu@$server"
+ssh ubuntu -i ~/.ssh/school
