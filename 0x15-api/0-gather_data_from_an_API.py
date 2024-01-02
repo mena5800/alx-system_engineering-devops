@@ -2,7 +2,6 @@
 """0. Gather data from an API"""
 import requests
 from sys import argv
-import json
 
 
 if __name__ == "__main__":
