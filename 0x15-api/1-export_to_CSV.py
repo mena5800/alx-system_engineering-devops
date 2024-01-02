@@ -24,8 +24,9 @@ if __name__ == "__main__":
     with open("{}.csv".format(id), "w", newline="") as csvfile:
         fieldnames = ["USER_ID", "USERNAME",
                       "TASK_COMPLETED_STATUS", "TASK_TITLE"]
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames, quotechar='"',
+                                quoting=csv.QUOTE_ALL)
         for task in completed_tasks:
-            writer.writerow({"USER_ID": id, "USERNAME": username,
+            writer.writerow({"USER_ID": str(id), "USERNAME": username,
                             "TASK_COMPLETED_STATUS": task.get("completed"),
                              "TASK_TITLE": task.get("title")})
